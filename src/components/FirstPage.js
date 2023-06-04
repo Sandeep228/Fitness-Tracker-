@@ -10,7 +10,7 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
-import fitnessGif from "./sa.gif"; // Import your fitness GIF
+import fitnessGif from "../fitness_image.jpg"; // Import your fitness GIF
 
 function FirstPage() {
   const controls = useAnimation();
@@ -47,7 +47,7 @@ function FirstPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
         >
-          <Heading as="h1" size="2xl" color="black" mt={195}>
+          <Heading as="h1" size="2xl" color="white" mt={550}>
             Fitness Tracker
           </Heading>
         </motion.div>
@@ -56,7 +56,7 @@ function FirstPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
-          <Text fontSize="xl" color="black">
+          <Text fontSize="xl" color="white">
             Track your fitness goals, stay motivated, and achieve results.
           </Text>
         </motion.div>
@@ -66,7 +66,7 @@ function FirstPage() {
           transition={{ delay: 0.8, duration: 1 }}
         >
           <Button
-            colorScheme="teal"
+            colorScheme="red"
             size="lg"
             whileHover={{ scale: 1.1, boxShadow: "0 0 8px rgba(0, 0, 0, 0.3)" }}
             whileTap={{ scale: 0.9 }}
