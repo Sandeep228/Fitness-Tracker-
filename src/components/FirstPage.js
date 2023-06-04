@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
+import axios from "axios";
 
 import fitnessGif from "../fitness_image.jpg"; // Import your fitness GIF
 
@@ -22,9 +23,14 @@ function FirstPage() {
     });
   }, [controls]);
 
-  const handleLogin = () => {
-    // Add your login with Gmail logic here
-    console.log("Logging in with Gmail...");
+  const handleLogin = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/auth/google");
+      console.log(response.data.authUrl)
+      window.location.href = response.data.authUrl;
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
   };
 
   return (
