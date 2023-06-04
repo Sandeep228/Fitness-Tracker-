@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
 
 import fitnessGif from "../fitness_image.jpg"; // Import your fitness GIF
 
