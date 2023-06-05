@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import FirstPage from "./components/FirstPage";
-import Landing from "./components/Landing";
+import Loading from "./components/Loading";
+import Chart1 from "./components/chart";
 import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
@@ -8,9 +9,9 @@ function App() {
     <>
       <ChakraProvider>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Loading />} />
           <Route path="firstpage" element={<FirstPage />} />
-          <Route />
+          <Route path="new" element={<Chart1 />} />
         </Routes>
       </ChakraProvider>
     </>

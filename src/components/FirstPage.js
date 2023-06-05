@@ -1,30 +1,30 @@
-import {
-  Button,
-  ChakraProvider,
-  Container,
-  Heading,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Button, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
+import axios from "axios";
 
 import fitnessGif from "../fitness_image.jpg"; // Import your fitness GIF
+import { FaDumbbell } from "react-icons/fa";
 
 function FirstPage() {
   const controls = useAnimation();
 
   useEffect(() => {
     controls.start({
-      opacity: 1,
+      opacity: 0.6,
       x: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.6 },
     });
   }, [controls]);
 
-  const handleLogin = () => {
-    // Add your login with Gmail logic here
-    console.log("Logging in with Gmail...");
+  const handleLogin = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/auth/google");
+      console.log(response.data.authUrl);
+      window.location.href = response.data.authUrl;
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
   };
 
   return (
@@ -33,14 +33,30 @@ function FirstPage() {
       maxHeight={1670}
       textAlign="center"
       style={{
-        backgroundImage: `url(${fitnessGif})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
         height: "800px",
+        backgroundColor: "black",
       }}
     >
-      <VStack spacing={4} initial={{ opacity: 0, x: -100 }} animate={controls}>
+      <motion.img
+        src={fitnessGif}
+        alt="Fitness Image"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        style={{ height: "100%", width: "100%" }}
+      />
+      <VStack
+        spacing={4}
+        initial={{ opacity: 0, x: -100 }}
+        animate={controls}
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -51,7 +67,7 @@ function FirstPage() {
           </Heading>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 1 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
@@ -60,9 +76,9 @@ function FirstPage() {
           </Text>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          whileHover={{ scale: 1.1, y: -10 }}
+          whileTap={{ scale: 0.9 }}
+          initial={{ scale: 1 }}
         >
           <Button
             colorScheme="red"
@@ -71,6 +87,7 @@ function FirstPage() {
             whileTap={{ scale: 0.9 }}
             onClick={handleLogin}
           >
+            <FaDumbbell size={20} style={{ marginRight: "8px" }} />
             Login with Gmail
           </Button>
         </motion.div>
