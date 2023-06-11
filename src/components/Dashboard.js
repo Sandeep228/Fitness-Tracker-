@@ -16,7 +16,6 @@ const Dashboard = () => {
   }, []);
   if(fitnessData){
     console.log(fitnessData)
-    //saveDataToAppwrite();
   }
   return (
     <div>
