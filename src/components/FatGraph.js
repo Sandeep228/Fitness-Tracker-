@@ -10,22 +10,21 @@ import {
   Tooltip,
 } from "recharts";
 
-const FatGraph = ({ data }) => {
+const FatGraph = ({ fat }) => {
   return (
-    <Box bg="white" border="1px solid #E2E8F0" borderRadius="md" p={4}>
-      <Text fontSize="lg" fontWeight="bold" mb={4}>
-        Sleep Hours Graph
+    <Box bg="white" border="1px solid #E2E8F0" borderRadius="md">
+      <Text fontSize="lg" fontWeight="bold" mb={4} p={4}>
+        Body Fat
       </Text>
-
-      <ResponsiveContainer width="100%" height={300}>
-        <AreaChart data={data}>
+      <ResponsiveContainer width="100%" height={265}>
+        <AreaChart data={fat}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="hours"
+            dataKey="body_fat_in_percent"
             stroke="#8884d8"
             fill="#8884d8"
           />

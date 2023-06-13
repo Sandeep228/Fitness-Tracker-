@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text, Divider } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import {
   LineChart,
   Line,
@@ -9,28 +9,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const ActivityCard = () => {
-  // Dummy data for step count and sleep hours
-  const stepCountData = [
-    { day: "Mon", steps: 5000 },
-    { day: "Tue", steps: 6000 },
-    { day: "Wed", steps: 8000 },
-    { day: "Thu", steps: 10000 },
-    { day: "Fri", steps: 7000 },
-    { day: "Sat", steps: 9000 },
-    { day: "Sun", steps: 6000 },
-  ];
+import { BarChart, Bar } from "recharts";
 
-  const sleepHoursData = [
-    { day: "Mon", hours: 7 },
-    { day: "Tue", hours: 6 },
-    { day: "Wed", hours: 8 },
-    { day: "Thu", hours: 7.5 },
-    { day: "Fri", hours: 6.5 },
-    { day: "Sat", hours: 8.5 },
-    { day: "Sun", hours: 7 },
-  ];
-
+const ActivityCard = ({ result, glucose }) => {
   return (
     <Box
       p={4}
@@ -45,39 +26,37 @@ const ActivityCard = () => {
         Activity
       </Text>
       <Flex justify="space-between">
-        {/* Step Count Card */}
         <Box p={4} bg="gray.100" borderRadius="md" flex="1" mr={4}>
           <Text fontSize="lg" fontWeight="bold" mb={2}>
             Step Count
           </Text>
           <ResponsiveContainer width="100%" aspect={3}>
-            <LineChart data={stepCountData}>
-              <XAxis dataKey="day" />
+            <BarChart data={result}>
+              <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
-              <Line
+              <Bar
                 type="monotone"
-                dataKey="steps"
+                dataKey="step_count"
                 stroke="#8884d8"
                 strokeWidth={2}
               />
-            </LineChart>
+            </BarChart>
           </ResponsiveContainer>
         </Box>
 
-        {/* Sleep Hours Card */}
         <Box p={4} bg="gray.100" borderRadius="md" flex="1" ml={4}>
           <Text fontSize="lg" fontWeight="bold" mb={2}>
-            Sleep Hours
+            Glucose Level
           </Text>
           <ResponsiveContainer width="100%" aspect={3}>
-            <LineChart data={sleepHoursData}>
+            <LineChart data={glucose}>
               <XAxis dataKey="day" />
               <YAxis />
               <Tooltip />
               <Line
                 type="monotone"
-                dataKey="hours"
+                dataKey="glucose_level"
                 stroke="#82ca9d"
                 strokeWidth={2}
               />

@@ -4,7 +4,6 @@ import {
   Flex,
   Text,
   Stat,
-  StatLabel,
   StatNumber,
   Icon,
   useToken,
@@ -15,18 +14,24 @@ import {
   GiHeartBeats,
   GiRunningShoe,
 } from "react-icons/gi";
+import { FaHeartbeat } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 
 const AnimatedBox = motion(Box);
 
-const HealthStatsCard = () => {
+const HealthStatsCard = ({ weight, height, BP, step, heart }) => {
   const [bgColor] = useToken("colors", ["blue.500"]);
 
   const cardVariants = {
     initial: { opacity: 0, scale: 0.5 },
     animate: { opacity: 1, scale: 1 },
   };
+  const decimalheight = height;
+  const minimizedheight = Math.floor(decimalheight);
 
+  const number = step;
+  const formattedNumber = number?.toLocaleString();
   return (
     <Flex justify="center" align="center" gap={4} py={2} m={2}>
       <AnimatedBox
@@ -52,8 +57,7 @@ const HealthStatsCard = () => {
           Height
         </Text>
         <Stat>
-          <StatLabel color="white">Current Height</StatLabel>
-          <StatNumber color="white">175 cm</StatNumber>
+          <StatNumber color="white">{minimizedheight} cm</StatNumber>
         </Stat>
       </AnimatedBox>
 
@@ -80,8 +84,7 @@ const HealthStatsCard = () => {
           Weight
         </Text>
         <Stat>
-          <StatLabel color="white">Current Weight</StatLabel>
-          <StatNumber color="white">70 kg</StatNumber>
+          <StatNumber color="white">{weight} kg</StatNumber>
         </Stat>
       </AnimatedBox>
 
@@ -103,13 +106,15 @@ const HealthStatsCard = () => {
         alignItems="center"
         flexDirection="column"
       >
-        <Icon as={GiHeartBeats} boxSize={8} color="white" mb={4} />
+        <Icon as={FaHeartbeat} boxSize={8} color="white" mb={4} />
         <Text fontSize="lg" fontWeight="bold" color="white" mb={2}>
           Blood Pressure
         </Text>
         <Stat>
-          <StatLabel color="white">Current Blood Pressure</StatLabel>
-          <StatNumber color="white">120/80 mmHg</StatNumber>
+          {/* //120/80 */}
+          <StatNumber color="white">
+            {JSON.stringify(BP[0] + "/" + BP[1])}mmHg
+          </StatNumber>
         </Stat>
       </AnimatedBox>
       <AnimatedBox
@@ -135,8 +140,7 @@ const HealthStatsCard = () => {
           Step Count{" "}
         </Text>
         <Stat>
-          <StatLabel color="white">Step Count</StatLabel>
-          <StatNumber color="white">3440</StatNumber>
+          <StatNumber color="white">{formattedNumber}</StatNumber>
         </Stat>
       </AnimatedBox>
       <Flex justify="center" align="center" gap={4}>
@@ -163,8 +167,7 @@ const HealthStatsCard = () => {
             Heart Rate
           </Text>
           <Stat>
-            <StatLabel color="white">Current Heart Rate</StatLabel>
-            <StatNumber color="white">75 bpm</StatNumber>
+            <StatNumber color="white">{heart} bpm</StatNumber>
           </Stat>
         </AnimatedBox>
       </Flex>
