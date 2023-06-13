@@ -15,16 +15,16 @@ const AboutPage = () => {
           textAlign="center"
           animation="scale-in-center 0.5s"
         >
-          <Heading as="h1" size="xl" mb={4}>
+          <Heading as="h1" size="xl" mb={4} color="black">
             <FaDumbbell /> About Fitness Track
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize="lg" color="black">
             Fitness Track is a comprehensive fitness tracking app designed to
             help you monitor and improve your physical health and wellness. With
             our app, you can easily track your workouts, set fitness goals,
             monitor your progress, and stay motivated on your fitness journey.
           </Text>
-          <Text fontSize="lg" mt={4}>
+          <Text fontSize="lg" mt={4} color="black">
             Our mission is to empower individuals to lead healthier lives by
             providing them with the tools and insights they need to make
             positive changes. Whether you're a beginner or an advanced fitness
@@ -32,7 +32,7 @@ const AboutPage = () => {
             way.
           </Text>
 
-          <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={12}>
+          <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={12} color="black">
             <AdvantageCard
               icon={<FaHeart />}
               title="Health Benefits"

@@ -22,12 +22,12 @@ const ActivityCard = ({ result, glucose }) => {
       h="100%"
       w="100%"
     >
-      <Text fontSize="xl" fontWeight="bold" mb={4}>
+      <Text fontSize="xl" fontWeight="bold" mb={4} color="black">
         Activity
       </Text>
       <Flex justify="space-between">
         <Box p={4} bg="gray.100" borderRadius="md" flex="1" mr={4}>
-          <Text fontSize="lg" fontWeight="bold" mb={2}>
+          <Text fontSize="lg" fontWeight="bold" mb={2} color="black">
             Step Count
           </Text>
           <ResponsiveContainer width="100%" aspect={3}>
@@ -46,7 +46,7 @@ const ActivityCard = ({ result, glucose }) => {
         </Box>
 
         <Box p={4} bg="gray.100" borderRadius="md" flex="1" ml={4}>
-          <Text fontSize="lg" fontWeight="bold" mb={2}>
+          <Text fontSize="lg" fontWeight="bold" mb={2} color="black">
             Glucose Level
           </Text>
           <ResponsiveContainer width="100%" aspect={3}>

@@ -13,7 +13,7 @@ import {
 const FatGraph = ({ fat }) => {
   return (
     <Box bg="white" border="1px solid #E2E8F0" borderRadius="md">
-      <Text fontSize="lg" fontWeight="bold" mb={4} p={4}>
+      <Text fontSize="lg" fontWeight="bold" mb={4} p={4} color="black">
         Body Fat
       </Text>
       <ResponsiveContainer width="100%" height={265}>

@@ -25,6 +25,7 @@ function Loading() {
         }}
       >
         <p style={{ color: "white" }}>Fetching Data!!</p>
+        <br />
         <motion.div
           style={{
             width: "100px",
