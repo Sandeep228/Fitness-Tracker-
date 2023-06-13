@@ -37,7 +37,7 @@ const HealthStatsCard = () => {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.3 }}
-        width="300px"
+        width="250px"
         p={4}
         shadow="md"
         borderWidth="2px"
@@ -65,7 +65,7 @@ const HealthStatsCard = () => {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.3 }}
-        width="300px"
+        width="250px"
         p={4}
         shadow="md"
         borderWidth="2px"
@@ -93,7 +93,7 @@ const HealthStatsCard = () => {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.3 }}
-        width="300px"
+        width="250px"
         p={4}
         shadow="md"
         borderWidth="2px"
@@ -120,7 +120,7 @@ const HealthStatsCard = () => {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.3 }}
-        width="300px"
+        width="250px"
         p={4}
         shadow="md"
         borderWidth="2px"
@@ -148,7 +148,7 @@ const HealthStatsCard = () => {
           initial="initial"
           animate="animate"
           transition={{ duration: 0.3 }}
-          width="300px"
+          width="250px"
           p={4}
           shadow="md"
           borderWidth="2px"

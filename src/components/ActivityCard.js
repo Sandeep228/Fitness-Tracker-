@@ -37,8 +37,9 @@ const ActivityCard = () => {
       bg="white"
       borderRadius="lg"
       boxShadow="md"
-      maxW="1500px"
       mx="auto"
+      h="100%"
+      w="100%"
     >
       <Text fontSize="xl" fontWeight="bold" mb={4}>
         Activity
