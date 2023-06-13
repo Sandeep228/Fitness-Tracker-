@@ -21,8 +21,10 @@ function Loading() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+          backgroundColor: "black",
         }}
       >
+        <p style={{ color: "white" }}>Fetching Data!!</p>
         <motion.div
           style={{
             width: "100px",
