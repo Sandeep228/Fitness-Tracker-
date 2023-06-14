@@ -113,7 +113,10 @@ const HealthStatsCard = ({ weight, height, BP, step, heart }) => {
         <Stat>
           {/* //120/80 */}
           <StatNumber color="white">
-            {JSON.stringify(BP[0] + "/" + BP[1])}mmHg
+            {/* {
+            BP[0]? JSON.stringify(BP[0] + "/" + BP[1]) : 120/80
+            } */}
+          120/80 mmHg
           </StatNumber>
         </Stat>
       </AnimatedBox>
