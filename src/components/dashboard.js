@@ -64,7 +64,7 @@ const Dashboard = () => {
           console.log(`No data available`);
         }
       });
-      console.log("-----------------------");
+      console.log("--------------------");
     });
   }
 
