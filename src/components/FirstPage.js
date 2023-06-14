@@ -2,7 +2,6 @@ import { Button, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import axios from "axios";
-
 import fitnessGif from "../fitness_image.jpg"; // Import your fitness GIF
 import { FaDumbbell } from "react-icons/fa";
 
@@ -36,7 +35,7 @@ function FirstPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        height: "800px",
+        height: "870px",
         backgroundColor: "black",
       }}
     >
@@ -76,9 +75,11 @@ function FirstPage() {
           </Text>
         </motion.div>
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 1 }}
           whileHover={{ scale: 1.1, y: -10 }}
           whileTap={{ scale: 0.9 }}
-          initial={{ scale: 1 }}
         >
           <Button
             colorScheme="red"
