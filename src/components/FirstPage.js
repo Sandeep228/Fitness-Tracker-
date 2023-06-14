@@ -10,7 +10,7 @@ function FirstPage() {
 
   useEffect(() => {
     controls.start({
-      opacity: 1,
+      opacity: 0.6,
       x: 0,
       transition: { duration: 0.6 },
     });
@@ -66,7 +66,7 @@ function FirstPage() {
           </Heading>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 1 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
