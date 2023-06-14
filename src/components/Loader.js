@@ -24,7 +24,7 @@ function Loading() {
           backgroundColor: "black",
         }}
       >
-        <p style={{ color: "white" }}>Fetching Data!!</p>
+        
         <br />
         <motion.div
           style={{

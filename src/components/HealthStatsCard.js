@@ -84,7 +84,7 @@ const HealthStatsCard = ({ weight, height, BP, step, heart }) => {
           Weight
         </Text>
         <Stat>
-          <StatNumber color="white">{weight} kg</StatNumber>
+          <StatNumber color="white">{parseInt(weight, 10)} kg</StatNumber>
         </Stat>
       </AnimatedBox>
 
