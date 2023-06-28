@@ -18,7 +18,7 @@ function FirstPage() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.get("https://fitpulse.pujuagarwal.repl.co/auth/google");
+      const response = await axios.get("http://localhost:8000/auth/google");
       console.log(response.data.authUrl);
       window.location.href = response.data.authUrl;
     } catch (error) {

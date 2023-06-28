@@ -19,7 +19,7 @@ import FatGraph from "./FatGraph";
 import Loading from "./Loader";
 
 const Dashboard = () => {
-  const [fitnessData, setFitnessData] = useState([]);
+  const [fitnessData, setFitnessData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -28,28 +28,19 @@ const Dashboard = () => {
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      axios.get("https://fitpulse.pujuagarwal.repl.co/fetch-data").then((response) => {
+      axios.get("http://localhost:8000/fetch-data").then((response) => {
         // Handle the retrieved data
-        console.log("response.data",response.data)
-        console.log("fitnessData before set",fitnessData)
         setFitnessData(response.data);
-        console.log("fitnessData aftyer set",fitnessData)
-
         setIsLoading(false);
       });
     }, 3000);
   }, []);
 
   if (fitnessData) {
-    
-      //date, step_count
-      result = fitnessData?.map((data) => {
-        const date= data.date;
-        const step_count = data.step_count;
-        const trimmeddate = date.substr(0, 3);
-        return { date: trimmeddate, step_count };
-      });
-    
+    result = fitnessData?.formattedData.map(({ date, step_count }) => {
+      const trimmeddate = date.substr(0, 3);
+      return { date: trimmeddate, step_count };
+    });
   }
 
   const handleLogout = () => {
@@ -63,37 +54,37 @@ const Dashboard = () => {
     navigate("/contact"); // Replace "/another-page" with the desired URL
   };
 
-  const glucose = fitnessData?.map((item) => ({
+  const glucose = fitnessData?.formattedData.map((item) => ({
     glucose_level: item.glucose_level,
   }));
 
-  const fat = fitnessData?.map((item) => ({
+  const fat = fitnessData?.formattedData.map((item) => ({
     body_fat_in_percent: item.body_fat_in_percent,
   }));
 
-  const maxWeight = fitnessData?.reduce(
+  const maxWeight = fitnessData?.formattedData.reduce(
     (max, item) => (item.weight > max ? item.weight : max),
     0
   );
-  const maxHeight = fitnessData?.reduce(
+  const maxHeight = fitnessData?.formattedData.reduce(
     (max, item) => (item.height_in_cms > max ? item.height_in_cms : max),
     0
   );
 
   let maxBPArray = [];
 
-  fitnessData?.formattedData?.forEach((item) => {
+  fitnessData?.formattedData.forEach((item) => {
     const itemMaxBP = Math.max(...item.blood_pressure);
     if (itemMaxBP > Math.max(...maxBPArray)) {
       maxBPArray = item.blood_pressure;
     }
   });
 
-  const StepCount = fitnessData?.reduce(
+  const StepCount = fitnessData?.formattedData.reduce(
     (max, item) => (item.step_count > max ? item.step_count : max),
     0
   );
-  const heartrate = fitnessData?.reduce(
+  const heartrate = fitnessData?.formattedData.reduce(
     (max, item) => (item.heart_rate > max ? item.heart_rate : max),
     0
   );
